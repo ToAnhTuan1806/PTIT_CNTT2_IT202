@@ -134,13 +134,13 @@ where price_per_day > (
     from rooms
 );
 
--- Hiển thị những khách chưa từng đặt phòng
+-- hien thi nhung khach chua tung dat phong
 select g.guest_id, g.guest_name, g.phone
 from guests g
 left join bookings b on g.guest_id = b.guest_id
 where b.booking_id is null;
 
--- Tìm phòng được đặt nhiều lần nhất
+-- phong duoc dat nhieu nhat
 select r.room_id, r.room_type, r.price_per_day, count(*) `so luot dat`
 from bookings b
 join rooms r on b.room_id = r.room_id
