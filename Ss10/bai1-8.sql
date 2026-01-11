@@ -133,7 +133,7 @@ create index idx_user_gender on users (gender);
 
 create or replace view view_popular_posts as
 select  p.post_id, u.username, p.content, 
-		count(distinct u.user_id)as like_count, count(distinct c.comment_id) as comment_count
+		count(distinct l.user_id)as like_count, count(distinct c.comment_id) as comment_count
 from posts p
 join users u on u.user_id = p.user_id
 left join likes l on l.post_id = p.post_id
